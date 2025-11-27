@@ -30,11 +30,11 @@ outline: deep
 
 `use()` 作为 React 渲染系统的一部分，具有以下优势：
 
-- ✅ **非阻塞渲染**：可以暂停渲染，让 Suspense 接管 UI
-- ✅ **自动缓存**：React 可以缓存 Promise 结果
-- ✅ **预加载支持**：可以提前开始加载数据
-- ✅ **错误边界集成**：错误可以被错误边界捕获
-- ✅ **更好的用户体验**：在等待过程中显示 loading 状态
+- **非阻塞渲染**：可以暂停渲染，让 Suspense 接管 UI
+- **自动缓存**：React 可以缓存 Promise 结果
+- **预加载支持**：可以提前开始加载数据
+- **错误边界集成**：错误可以被错误边界捕获
+- **更好的用户体验**：在等待过程中显示 loading 状态
 
 ## use() 的工作原理
 
@@ -53,7 +53,7 @@ outline: deep
 #### 使用 await（不推荐）
 
 ```jsx
-// ❌ 不推荐：使用 await
+// 不推荐：使用 await
 async function UserProfile({ userId }) {
   const user = await fetchUser(userId); // 阻塞整个组件树
   return <div>{user.name}</div>;
@@ -69,7 +69,7 @@ async function UserProfile({ userId }) {
 #### 使用 use()（推荐）
 
 ```jsx
-// ✅ 推荐：使用 use()
+// 推荐：使用 use()
 import { use } from 'react';
 
 function UserProfile({ userId }) {
@@ -377,25 +377,25 @@ function ConditionalData({ shouldFetch, dataPromise }) {
 ### 1. 始终配合 Suspense 使用
 
 ```jsx
-// ✅ 推荐
+// 推荐
 <Suspense fallback={<Loading />}>
   <Component dataPromise={promise} />
 </Suspense>
 
-// ❌ 不推荐：没有 Suspense 边界
+// 不推荐：没有 Suspense 边界
 <Component dataPromise={promise} />
 ```
 
 ### 2. 在组件顶层调用 use()
 
 ```jsx
-// ✅ 推荐
+// 推荐
 function Component({ promise }) {
   const data = use(promise);
   // 使用 data
 }
 
-// ❌ 不推荐：在条件或循环中调用
+// 不推荐：在条件或循环中调用
 function Component({ promise, condition }) {
   if (condition) {
     const data = use(promise); // 错误！
@@ -419,12 +419,12 @@ function getCachedData(key, fetcher) {
 ### 4. 提供有意义的 fallback
 
 ```jsx
-// ✅ 推荐：提供具体的 loading 状态
+// 推荐：提供具体的 loading 状态
 <Suspense fallback={<UserProfileSkeleton />}>
   <UserProfile userId={1} />
 </Suspense>
 
-// ❌ 不推荐：过于简单的 fallback
+// 不推荐：过于简单的 fallback
 <Suspense fallback={<div>Loading...</div>}>
   <UserProfile userId={1} />
 </Suspense>
