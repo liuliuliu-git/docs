@@ -1,0 +1,6 @@
+name = "docs"
+compatibility_date = "2025-11-28"
+
+[assets]
+directory = ".vitepress/dist"
+
