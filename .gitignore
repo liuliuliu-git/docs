@@ -66,6 +66,3 @@ node_modules/
 # VitePress 配置文件需要被提交
 .vitepress/*
 !.vitepress/config.mts
-!.vitepress/config.mjs
-!.vitepress/config.ts
-!.vitepress/config.js
