@@ -64,3 +64,7 @@ coverage/
 node_modules/
 .cursor/
 .vitepress/
+!.vitepress/config.mts
+!.vitepress/config.mjs
+!.vitepress/config.ts
+!.vitepress/config.js
