@@ -8,6 +8,9 @@ outline: deep
 
 ## 技术栈分类
 
+### 前端通用知识
+- [前端渲染模式：CSR、SSR、SSG](/guides/general/rendering-modes) - 深入理解客户端渲染、服务器端渲染和静态站点生成
+
 ### React
 - [React 学习指南](/guides/react/)
   - [use() API 深入学习](/guides/react/use-api)

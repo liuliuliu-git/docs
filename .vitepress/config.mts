@@ -14,6 +14,36 @@ export default withMermaid(
       // 例如：theme: 'default' | 'dark' | 'forest' | 'neutral'
     },
     
+    // Vite 配置：修复 mermaid 依赖的模块导入问题
+    vite: {
+      optimizeDeps: {
+        // 强制包含 mermaid 及其依赖，确保正确处理 CommonJS 模块
+        include: [
+          'dayjs',
+          '@braintree/sanitize-url',
+          'mermaid'
+        ],
+        esbuildOptions: {
+          // 确保正确处理 CommonJS 模块
+          target: 'esnext',
+          // 支持 CommonJS
+          mainFields: ['module', 'main'],
+          // 处理 CommonJS 的默认导出
+          format: 'esm'
+        }
+      },
+      resolve: {
+        // 确保依赖使用正确的模块解析
+        dedupe: ['dayjs', '@braintree/sanitize-url'],
+        // 对于 pnpm，确保能够解析嵌套依赖
+        preserveSymlinks: false
+      },
+      // 处理 CommonJS 模块的默认导出问题
+      ssr: {
+        noExternal: ['mermaid']
+      }
+    },
+    
     themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -30,6 +60,12 @@ export default withMermaid(
           text: '学习指南',
           items: [
             { text: '指南首页', link: '/guides/' }
+          ]
+        },
+        {
+          text: '前端通用知识',
+          items: [
+            { text: '前端渲染模式：CSR、SSR、SSG', link: '/guides/general/rendering-modes' }
           ]
         },
         {
