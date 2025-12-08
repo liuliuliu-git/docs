@@ -65,7 +65,8 @@ export default withMermaid(
         {
           text: '前端通用知识',
           items: [
-            { text: '前端渲染模式：CSR、SSR、SSG', link: '/guides/general/rendering-modes' }
+            { text: '前端渲染模式：CSR、SSR、SSG', link: '/guides/general/rendering-modes' },
+            { text: '网络与通信：HTTP、缓存、HTTPS', link: '/guides/general/network-communication' }
           ]
         },
         {
