@@ -84,7 +84,8 @@ export default withMermaid(
             { text: 'App Router 文件路由系统', link: '/guides/nextjs/app-router' },
             { text: 'App Router 路由导航', link: '/guides/nextjs/navigation' },
             { text: '路由组', link: '/guides/nextjs/route-groups' },
-            { text: '服务端路由处理程序', link: '/guides/nextjs/router-handle' }
+            { text: '服务端路由处理程序', link: '/guides/nextjs/router-handle' },
+            { text: 'Proxy（代理）', link: '/guides/nextjs/proxy' }
           ]
         },
         {
