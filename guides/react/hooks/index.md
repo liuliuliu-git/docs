@@ -96,4 +96,4 @@ stateDiagram-v2
 ## 相关资源
 
 - [React 官方文档 - Hooks](https://react.dev/reference/react)
-- [use() API](use-api.md) - React 19 新特性
+- [use() API](/guides/react/use-api) - React 19 新特性

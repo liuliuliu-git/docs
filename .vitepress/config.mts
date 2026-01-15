@@ -115,6 +115,7 @@ export default withMermaid(
                 collapsed: true,
                 items: [
                   { text: 'useState', link: '/guides/react/hooks/useState' },
+                  { text: 'useReducer', link: '/guides/react/hooks/useReducer' },
                   { text: 'useEffect', link: '/guides/react/hooks/useEffect' },
                   { text: 'useRef', link: '/guides/react/hooks/useRef' },
                   { text: 'useCallback/useMemo', link: '/guides/react/hooks/useCallback-useMemo' },
