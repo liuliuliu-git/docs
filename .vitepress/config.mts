@@ -74,7 +74,19 @@ export default withMermaid(
           text: 'React',
           items: [
             { text: 'React 指南', link: '/guides/react/' },
-            { text: 'use() API', link: '/guides/react/use-api' }
+            { text: 'Hooks 概览', link: '/guides/react/hooks/' },
+            { text: 'use() API', link: '/guides/react/use-api' },
+            {
+              text: '核心 Hooks',
+              collapsed: true,
+              items: [
+                { text: 'useState', link: '/guides/react/hooks/useState' },
+                { text: 'useEffect', link: '/guides/react/hooks/useEffect' },
+                { text: 'useRef', link: '/guides/react/hooks/useRef' },
+                { text: 'useCallback/useMemo', link: '/guides/react/hooks/useCallback-useMemo' },
+                { text: '自定义 Hooks', link: '/guides/react/hooks/custom-hooks' }
+              ]
+            }
           ]
         },
         {
@@ -85,7 +97,17 @@ export default withMermaid(
             { text: 'App Router 路由导航', link: '/guides/nextjs/navigation' },
             { text: '路由组', link: '/guides/nextjs/route-groups' },
             { text: '服务端路由处理程序', link: '/guides/nextjs/router-handle' },
-            { text: 'Proxy（代理）', link: '/guides/nextjs/proxy' }
+            { text: 'Proxy（代理）', link: '/guides/nextjs/proxy' },
+            {
+              text: '进阶主题',
+              collapsed: true,
+              items: [
+                { text: '数据获取', link: '/guides/nextjs/data-fetching' },
+                { text: '缓存机制', link: '/guides/nextjs/caching' },
+                { text: 'Middleware', link: '/guides/nextjs/middleware' },
+                { text: '错误处理', link: '/guides/nextjs/error-handling' }
+              ]
+            }
           ]
         },
         {
