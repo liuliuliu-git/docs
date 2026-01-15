@@ -8,14 +8,10 @@ export default withMermaid(
     description: "涵盖 React、Next.js、Node.js、Go 等技术栈的学习指南和参考文档",
     base: '/',
 
-    // Mermaid 配置 - 懒加载优化
+    // Mermaid 配置
     mermaid: {
       // 使用较轻量的主题
       theme: 'default',
-      // 懒加载配置
-      lazy: true,
-      // 禁用服务器端渲染（开发环境）
-      serverSide: false,
     },
 
     // Vite 配置优化
@@ -80,9 +76,6 @@ export default withMermaid(
         noExternal: ['mermaid']
       }
     },
-
-    // 启用缓存（生产环境）
-    cache: true,
 
     themeConfig: {
       // 导航栏
@@ -239,13 +232,7 @@ export default withMermaid(
       // 搜索配置
       search: {
         provider: 'local'
-      },
-
-      // 启用页面切换动画
-      pageTransition: true,
-
-      // 启用布局切换动画
-      layoutTransition: true
+      }
     }
   })
 )
