@@ -19,7 +19,6 @@ export default withMermaid(
       // 优化依赖预构建
       optimizeDeps: {
         include: [
-          'dayjs',
           '@braintree/sanitize-url',
           'mermaid',
           'vue'
@@ -34,10 +33,9 @@ export default withMermaid(
       cacheDir: '.vitepress/cache',
       // 构建优化
       build: {
-        // 启用 Rollup 打包分析
+        // 代码分割
         rollupOptions: {
           output: {
-            // 代码分割
             manualChunks(id) {
               if (id.includes('node_modules')) {
                 return 'vendor';
@@ -45,22 +43,16 @@ export default withMermaid(
             }
           }
         },
-        // 压缩
-        minify: 'terser',
-        terserOptions: {
-          compress: {
-            drop_console: true,
-            drop_debugger: true
-          }
-        }
+        // 使用 esbuild 压缩，兼容性好
+        minify: 'esbuild',
+        // 禁用 sourcemap 减少构建体积
+        sourcemap: false
       },
       // 开发服务器优化
       server: {
-        // 启用快速刷新
         hmr: {
           overlay: true
         },
-        // 预热
         warmup: {
           clientFiles: [
             './.vitepress/theme/index.ts',
@@ -69,11 +61,11 @@ export default withMermaid(
         }
       },
       resolve: {
-        dedupe: ['dayjs', '@braintree/sanitize-url', 'vue'],
-        preserveSymlinks: false
+        dedupe: ['dayjs', '@braintree/sanitize-url', 'vue']
       },
       ssr: {
-        noExternal: ['mermaid']
+        noExternal: ['mermaid'],
+        external: ['dayjs']
       }
     },
 
