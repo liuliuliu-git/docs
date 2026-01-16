@@ -15,9 +15,7 @@
   "packageManager": "pnpm@10.4.1",
   "devDependencies": {
     "@braintree/sanitize-url": "^7.1.1",
-    "dayjs": "^1.11.19",
-    "terser": "^5.46.0",
-    "vitepress": "^1.6.3",
-    "vitepress-plugin-mermaid": "^2.0.17"
+    "mermaid": "^11.4.0",
+    "vitepress": "^1.6.3"
   }
 }

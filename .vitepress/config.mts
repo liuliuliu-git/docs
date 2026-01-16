@@ -1,12 +1,10 @@
 import { defineConfig } from 'vitepress'
-import { withMermaid } from 'vitepress-plugin-mermaid'
 
 // https://vitepress.dev/reference/site-config
-export default withMermaid(
-  defineConfig({
-    title: "技术文档",
-    description: "涵盖 React、Next.js、Node.js、Go 等技术栈的学习指南和参考文档",
-    base: '/',
+export default defineConfig({
+  title: "技术文档",
+  description: "涵盖 React、Next.js、Node.js、Go 等技术栈的学习指南和参考文档",
+  base: '/',
 
     // Mermaid 配置
     mermaid: {
@@ -14,60 +12,56 @@ export default withMermaid(
       theme: 'default',
     },
 
-    // Vite 配置优化
-    vite: {
-      // 优化依赖预构建
-      optimizeDeps: {
-        include: [
-          '@braintree/sanitize-url',
-          'mermaid',
-          'vue'
-        ],
-        esbuildOptions: {
-          target: 'esnext',
-          mainFields: ['module', 'main'],
-          format: 'esm'
-        }
-      },
-      // 缓存配置
-      cacheDir: '.vitepress/cache',
-      // 构建优化
-      build: {
-        // 代码分割
-        rollupOptions: {
-          output: {
-            manualChunks(id) {
-              if (id.includes('node_modules')) {
-                return 'vendor';
-              }
-            }
-          }
-        },
-        // 使用 esbuild 压缩，兼容性好
-        minify: 'esbuild',
-        // 禁用 sourcemap 减少构建体积
-        sourcemap: false
-      },
-      // 开发服务器优化
-      server: {
-        hmr: {
-          overlay: true
-        },
-        warmup: {
-          clientFiles: [
-            './.vitepress/theme/index.ts',
-            './.vitepress/theme/style.css'
-          ]
-        }
-      },
-      resolve: {
-        dedupe: ['dayjs', '@braintree/sanitize-url', 'vue']
-      },
-      ssr: {
-        noExternal: ['mermaid'],
-        external: ['dayjs']
+  // Vite 配置优化
+  vite: {
+    // 优化依赖预构建
+    optimizeDeps: {
+      include: [
+        '@braintree/sanitize-url',
+        'mermaid',
+        'vue'
+      ],
+      esbuildOptions: {
+        target: 'esnext',
+        mainFields: ['module', 'main'],
+        format: 'esm'
       }
     },
+    // 缓存配置
+    cacheDir: '.vitepress/cache',
+    // 构建优化
+    build: {
+      // 代码分割
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              return 'vendor';
+            }
+          }
+        }
+      },
+      // 使用 esbuild 压缩，兼容性好
+      minify: 'esbuild',
+      // 禁用 sourcemap 减少构建体积
+      sourcemap: false
+    },
+    // 开发服务器优化
+    server: {
+      hmr: {
+        overlay: true
+      },
+      warmup: {
+        clientFiles: [
+          './.vitepress/theme/index.ts',
+          './.vitepress/theme/style.css'
+        ]
+      }
+    },
+    resolve: {
+      dedupe: ['@braintree/sanitize-url', 'vue']
+    }
+  },
 
     themeConfig: {
       // 导航栏
